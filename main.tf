@@ -65,6 +65,12 @@ resource "aws_iam_role_policy_attachment" "lambda_dynamodb" {
   policy_arn = aws_iam_policy.dynamodb_access.arn
 }
 
+data "archive_file" "lambda_zip" {
+  type          = "zip"
+  source_file   = "lambda_function.py"
+  output_path   = "todo_api.zip"
+}
+
 resource "aws_lambda_function" "todo_api" {
   filename      = "todo_api.zip"
   function_name = "TodoAPI"
