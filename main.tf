@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "todos" {
-  name         = "Todos"
+  name         = "todo_table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "userId"
   range_key    = "todoId"
