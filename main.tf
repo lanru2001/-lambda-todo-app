@@ -67,8 +67,8 @@ resource "aws_iam_role_policy_attachment" "lambda_dynamodb" {
 
 data "archive_file" "lambda_zip" {
   type          = "zip"
-  source_file   = "lambda_function.py"
-  output_path   = "todo_api.zip"
+  source_file   = "${path.module}/lambda_function.py"
+  output_path   = "${path.module}/todo_api.zip"
 }
 
 resource "aws_lambda_function" "todo_api" {
